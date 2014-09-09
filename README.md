@@ -1,21 +1,16 @@
-# README #
+# saw-control #
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Windows program for talking to the SAWN Electronics Box
+* 0.1
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Note: You will need a USB-Serial cable (and possible drivers for it)
+* No installation necessary, just execute the binary
 
 ### Contribution guidelines ###
 
@@ -25,5 +20,4 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Michael 
