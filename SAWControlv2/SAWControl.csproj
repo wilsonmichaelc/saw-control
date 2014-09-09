@@ -7,10 +7,11 @@
     <ProjectGuid>{FDBD2D42-C6FB-4619-B9CF-2D255B05EE02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SAWControlv2</RootNamespace>
-    <AssemblyName>SAWControlv2</AssemblyName>
+    <RootNamespace>SAWControl</RootNamespace>
+    <AssemblyName>SAWControl</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -119,8 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BlackSpectrum.ico" />
-    <None Include="Resources\icon_red_dot.png" />
-    <None Include="Resources\icon_green_dot.png" />
+    <Content Include="Resources\green.png" />
+    <Content Include="Resources\red.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

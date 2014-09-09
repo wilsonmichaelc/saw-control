@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
 
-namespace SAWControlv2
+namespace SAWControl
 {
     public partial class SAWControl : Form
     {
@@ -223,20 +223,20 @@ namespace SAWControlv2
 
             if (Globals.FL1 || Globals.FL2)
             {
-                ledFault.BackgroundImage = SAWControlv2.Properties.Resources.icon_red_dot;
+                ledFault.BackgroundImage = SAWControl.Properties.Resources.red;
             }
             else
             {
-                ledFault.BackgroundImage = SAWControlv2.Properties.Resources.icon_green_dot;
+                ledFault.BackgroundImage = SAWControl.Properties.Resources.green;
             }
 
             if (Globals.OT1 || Globals.OT2)
             {
-                ledOverTemp.BackgroundImage = SAWControlv2.Properties.Resources.icon_red_dot;
+                ledOverTemp.BackgroundImage = SAWControl.Properties.Resources.red;
             }
             else
             {
-                ledOverTemp.BackgroundImage = SAWControlv2.Properties.Resources.icon_green_dot;
+                ledOverTemp.BackgroundImage = SAWControl.Properties.Resources.green;
             }
 
             txtPower.Text = Globals.PWR.ToString();

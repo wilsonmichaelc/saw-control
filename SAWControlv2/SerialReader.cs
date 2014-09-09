@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace SAWControlv2
+namespace SAWControl
 {
     class SerialReader
     {
@@ -24,6 +25,7 @@ namespace SAWControlv2
                     catch (TimeoutException tx)
                     {
                         progress.Report(null);
+                        MessageBox.Show("SAWControl", "Connection Timed Out!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                     int now = DateTime.Now.Millisecond;

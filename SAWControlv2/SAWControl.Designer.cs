@@ -1,4 +1,4 @@
-﻿namespace SAWControlv2
+﻿namespace SAWControl
 {
     partial class SAWControl
     {
@@ -189,7 +189,7 @@
             // ledOverTemp
             // 
             this.ledOverTemp.BackColor = System.Drawing.Color.Transparent;
-            this.ledOverTemp.BackgroundImage = global::SAWControlv2.Properties.Resources.icon_green_dot;
+            this.ledOverTemp.BackgroundImage = global::SAWControl.Properties.Resources.green;
             this.ledOverTemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ledOverTemp.Location = new System.Drawing.Point(173, 105);
             this.ledOverTemp.Name = "ledOverTemp";
@@ -200,7 +200,7 @@
             // ledFault
             // 
             this.ledFault.BackColor = System.Drawing.Color.Transparent;
-            this.ledFault.BackgroundImage = global::SAWControlv2.Properties.Resources.icon_green_dot;
+            this.ledFault.BackgroundImage = global::SAWControl.Properties.Resources.green;
             this.ledFault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ledFault.Location = new System.Drawing.Point(173, 78);
             this.ledFault.Name = "ledFault";
