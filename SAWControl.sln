@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAWControl", "SAWControlv2\SAWControl.csproj", "{FDBD2D42-C6FB-4619-B9CF-2D255B05EE02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAWControl", "SAWControl\SAWControl.csproj", "{FDBD2D42-C6FB-4619-B9CF-2D255B05EE02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
