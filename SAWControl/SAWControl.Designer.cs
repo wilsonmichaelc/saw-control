@@ -41,14 +41,11 @@
             this.lblPulseMode = new System.Windows.Forms.Label();
             this.txtPower = new System.Windows.Forms.TextBox();
             this.sldrPower = new System.Windows.Forms.TrackBar();
-            this.lblFault = new System.Windows.Forms.Label();
-            this.lblOverTemp = new System.Windows.Forms.Label();
-            this.ledOverTemp = new System.Windows.Forms.PictureBox();
-            this.ledFault = new System.Windows.Forms.PictureBox();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSetPower = new System.Windows.Forms.Button();
+            this.txtSetPower = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sldrPower)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledOverTemp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledFault)).BeginInit();
             this.SuspendLayout();
             // 
             // cmboCOMList
@@ -80,7 +77,8 @@
             // 
             // btnStatus
             // 
-            this.btnStatus.Location = new System.Drawing.Point(173, 155);
+            this.btnStatus.Enabled = false;
+            this.btnStatus.Location = new System.Drawing.Point(173, 126);
             this.btnStatus.Name = "btnStatus";
             this.btnStatus.Size = new System.Drawing.Size(81, 24);
             this.btnStatus.TabIndex = 3;
@@ -111,7 +109,8 @@
             // 
             // btnDual
             // 
-            this.btnDual.Location = new System.Drawing.Point(173, 185);
+            this.btnDual.Enabled = false;
+            this.btnDual.Location = new System.Drawing.Point(173, 156);
             this.btnDual.Name = "btnDual";
             this.btnDual.Size = new System.Drawing.Size(81, 23);
             this.btnDual.TabIndex = 6;
@@ -121,7 +120,8 @@
             // 
             // btnPulsed
             // 
-            this.btnPulsed.Location = new System.Drawing.Point(173, 214);
+            this.btnPulsed.Enabled = false;
+            this.btnPulsed.Location = new System.Drawing.Point(173, 185);
             this.btnPulsed.Name = "btnPulsed";
             this.btnPulsed.Size = new System.Drawing.Size(81, 23);
             this.btnPulsed.TabIndex = 7;
@@ -132,7 +132,7 @@
             // lblDualMode
             // 
             this.lblDualMode.AutoSize = true;
-            this.lblDualMode.Location = new System.Drawing.Point(260, 190);
+            this.lblDualMode.Location = new System.Drawing.Point(260, 161);
             this.lblDualMode.Name = "lblDualMode";
             this.lblDualMode.Size = new System.Drawing.Size(27, 13);
             this.lblDualMode.TabIndex = 8;
@@ -141,7 +141,7 @@
             // lblPulseMode
             // 
             this.lblPulseMode.AutoSize = true;
-            this.lblPulseMode.Location = new System.Drawing.Point(260, 219);
+            this.lblPulseMode.Location = new System.Drawing.Point(260, 190);
             this.lblPulseMode.Name = "lblPulseMode";
             this.lblPulseMode.Size = new System.Drawing.Size(27, 13);
             this.lblPulseMode.TabIndex = 9;
@@ -155,7 +155,6 @@
             this.txtPower.Size = new System.Drawing.Size(42, 20);
             this.txtPower.TabIndex = 10;
             this.txtPower.Text = "0";
-            this.txtPower.TextChanged += new System.EventHandler(this.txtPower_TextChanged);
             // 
             // sldrPower
             // 
@@ -168,46 +167,6 @@
             this.sldrPower.TabIndex = 11;
             this.sldrPower.Scroll += new System.EventHandler(this.sldrPower_Scroll);
             // 
-            // lblFault
-            // 
-            this.lblFault.AutoSize = true;
-            this.lblFault.Location = new System.Drawing.Point(193, 82);
-            this.lblFault.Name = "lblFault";
-            this.lblFault.Size = new System.Drawing.Size(30, 13);
-            this.lblFault.TabIndex = 14;
-            this.lblFault.Text = "Fault";
-            // 
-            // lblOverTemp
-            // 
-            this.lblOverTemp.AutoSize = true;
-            this.lblOverTemp.Location = new System.Drawing.Point(193, 108);
-            this.lblOverTemp.Name = "lblOverTemp";
-            this.lblOverTemp.Size = new System.Drawing.Size(60, 13);
-            this.lblOverTemp.TabIndex = 16;
-            this.lblOverTemp.Text = "Over Temp";
-            // 
-            // ledOverTemp
-            // 
-            this.ledOverTemp.BackColor = System.Drawing.Color.Transparent;
-            this.ledOverTemp.BackgroundImage = global::SAWControl.Properties.Resources.green;
-            this.ledOverTemp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ledOverTemp.Location = new System.Drawing.Point(173, 105);
-            this.ledOverTemp.Name = "ledOverTemp";
-            this.ledOverTemp.Size = new System.Drawing.Size(18, 18);
-            this.ledOverTemp.TabIndex = 15;
-            this.ledOverTemp.TabStop = false;
-            // 
-            // ledFault
-            // 
-            this.ledFault.BackColor = System.Drawing.Color.Transparent;
-            this.ledFault.BackgroundImage = global::SAWControl.Properties.Resources.green;
-            this.ledFault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ledFault.Location = new System.Drawing.Point(173, 78);
-            this.ledFault.Name = "ledFault";
-            this.ledFault.Size = new System.Drawing.Size(18, 18);
-            this.ledFault.TabIndex = 13;
-            this.ledFault.TabStop = false;
-            // 
             // btnRefresh
             // 
             this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
@@ -219,15 +178,45 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(173, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnSetPower
+            // 
+            this.btnSetPower.Enabled = false;
+            this.btnSetPower.Location = new System.Drawing.Point(222, 214);
+            this.btnSetPower.Name = "btnSetPower";
+            this.btnSetPower.Size = new System.Drawing.Size(32, 20);
+            this.btnSetPower.TabIndex = 14;
+            this.btnSetPower.Text = "Set";
+            this.btnSetPower.UseVisualStyleBackColor = true;
+            this.btnSetPower.Click += new System.EventHandler(this.btnSetPower_Click);
+            // 
+            // txtSetPower
+            // 
+            this.txtSetPower.AcceptsReturn = true;
+            this.txtSetPower.Enabled = false;
+            this.txtSetPower.Location = new System.Drawing.Point(173, 214);
+            this.txtSetPower.MaxLength = 3;
+            this.txtSetPower.Name = "txtSetPower";
+            this.txtSetPower.Size = new System.Drawing.Size(43, 20);
+            this.txtSetPower.TabIndex = 15;
+            this.txtSetPower.TextChanged += new System.EventHandler(this.txtSetPower_TextChanged);
+            // 
             // SAWControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 250);
-            this.Controls.Add(this.lblOverTemp);
-            this.Controls.Add(this.ledOverTemp);
-            this.Controls.Add(this.lblFault);
-            this.Controls.Add(this.ledFault);
+            this.Controls.Add(this.txtSetPower);
+            this.Controls.Add(this.btnSetPower);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.sldrPower);
             this.Controls.Add(this.txtPower);
@@ -245,8 +234,6 @@
             this.Name = "SAWControl";
             this.Text = "SAWControl";
             ((System.ComponentModel.ISupportInitialize)(this.sldrPower)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledOverTemp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledFault)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,10 +254,9 @@
         private System.Windows.Forms.TextBox txtPower;
         private System.Windows.Forms.TrackBar sldrPower;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.PictureBox ledFault;
-        private System.Windows.Forms.Label lblFault;
-        private System.Windows.Forms.PictureBox ledOverTemp;
-        private System.Windows.Forms.Label lblOverTemp;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSetPower;
+        private System.Windows.Forms.TextBox txtSetPower;
     }
 }
 

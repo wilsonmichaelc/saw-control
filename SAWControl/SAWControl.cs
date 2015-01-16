@@ -47,7 +47,6 @@ namespace SAWControl
                         if (initializeConnection())
                         {
                             startReading();
-                            beginErrorCheck();
                             btnConnect.Hide();
                             btnDisconnect.Show();
                             lblStatus.Text = "Connected";
@@ -55,6 +54,11 @@ namespace SAWControl
                             Globals._firstRun = false;
                             txtConsole.AppendText("OK");
                             sldrPower.Enabled = true;
+                            txtSetPower.Enabled = true;
+                            btnSetPower.Enabled = true;
+                            btnStatus.Enabled = true;
+                            btnDual.Enabled = true;
+                            btnPulsed.Enabled = true;
                         }
                         else
                         {
@@ -94,6 +98,11 @@ namespace SAWControl
                 lblStatus.ForeColor = Color.Red;
                 txtConsole.AppendText("\nDisconnected.");
                 sldrPower.Enabled = false;
+                txtSetPower.Enabled = false;
+                btnSetPower.Enabled = false;
+                btnStatus.Enabled = false;
+                btnDual.Enabled = false;
+                btnPulsed.Enabled = false;
             }
         }
 
@@ -140,13 +149,6 @@ namespace SAWControl
         {
             var progress = new Progress<string>( s => processResponse(s) );
             await Task.Factory.StartNew(() => SerialReader.Read(progress),
-                                        TaskCreationOptions.LongRunning);
-        }
-
-        private async void beginErrorCheck()
-        {
-            var progress = new Progress<string>(s => processResponse(s));
-            await Task.Factory.StartNew(() => ErrorCheck.Check(progress),
                                         TaskCreationOptions.LongRunning);
         }
 
@@ -276,24 +278,6 @@ namespace SAWControl
                 lblDualMode.ForeColor = Color.Red;
             }
 
-            if (Globals.FL1 || Globals.FL2)
-            {
-                ledFault.BackgroundImage = Properties.Resources.red;
-            }
-            else
-            {
-                ledFault.BackgroundImage = Properties.Resources.green;
-            }
-
-            if (Globals.OT1 || Globals.OT2)
-            {
-                ledOverTemp.BackgroundImage = Properties.Resources.red;
-            }
-            else
-            {
-                ledOverTemp.BackgroundImage = Properties.Resources.green;
-            }
-
             txtPower.Text = Globals.PWR.ToString();
             sldrPower.Value = Globals.PWR;
         }
@@ -304,22 +288,37 @@ namespace SAWControl
             txtConsole.ScrollToCaret();
         }
 
-        private void txtPower_TextChanged(object sender, EventArgs e)
-        {
-            // nothing to do here... we dont support manual power entry yet.
-        }
-
         private void sldrPower_Scroll(object sender, EventArgs e)
         {
             txtPower.Text = sldrPower.Value.ToString();
             Actions.setPower(txtPower.Text);
         }
 
-        private void btnErrorCheck_Click(object sender, EventArgs e)
+        private void btnSetPower_Click(object sender, EventArgs e)
         {
-            //Globals._printStatus = true;
-            Actions.checkErrors();
-            updateControls();
+            if(txtSetPower.TextLength > 0)
+            {
+                Actions.setPower(txtSetPower.Text);
+            }
+        }
+
+        private void txtSetPower_TextChanged(object sender, EventArgs e)
+        {
+            if(txtSetPower.TextLength > 0)
+            {
+                int value = 0;
+                bool result = int.TryParse(txtSetPower.Text, out value);
+                if (!result)
+                {
+                    MessageBox.Show("Power level must be a number.");
+                    txtSetPower.Text = "";
+                }else if(value < 0 || value > 100)
+                {
+                    MessageBox.Show("Power level must be a number between 0 and 100.");
+                    txtSetPower.Text = "";
+                }
+            }
+            
         }
 
         
