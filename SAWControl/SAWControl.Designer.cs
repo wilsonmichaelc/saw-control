@@ -42,7 +42,7 @@
             this.txtPower = new System.Windows.Forms.TextBox();
             this.sldrPower = new System.Windows.Forms.TrackBar();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
             this.btnSetPower = new System.Windows.Forms.Button();
             this.txtSetPower = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sldrPower)).BeginInit();
@@ -178,14 +178,15 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // button1
+            // clear
             // 
-            this.button1.Location = new System.Drawing.Point(173, 97);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
+            this.clear.Location = new System.Drawing.Point(173, 97);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(81, 23);
+            this.clear.TabIndex = 13;
+            this.clear.Text = "Clear";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
             // btnSetPower
             // 
@@ -208,6 +209,7 @@
             this.txtSetPower.Size = new System.Drawing.Size(43, 20);
             this.txtSetPower.TabIndex = 15;
             this.txtSetPower.TextChanged += new System.EventHandler(this.txtSetPower_TextChanged);
+            this.txtSetPower.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSetPower_KeyDown);
             // 
             // SAWControl
             // 
@@ -216,7 +218,7 @@
             this.ClientSize = new System.Drawing.Size(378, 250);
             this.Controls.Add(this.txtSetPower);
             this.Controls.Add(this.btnSetPower);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.sldrPower);
             this.Controls.Add(this.txtPower);
@@ -230,6 +232,7 @@
             this.Controls.Add(this.txtConsole);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.cmboCOMList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SAWControl";
             this.Text = "SAWControl";
@@ -254,7 +257,7 @@
         private System.Windows.Forms.TextBox txtPower;
         private System.Windows.Forms.TrackBar sldrPower;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button btnSetPower;
         private System.Windows.Forms.TextBox txtSetPower;
     }

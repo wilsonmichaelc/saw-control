@@ -291,6 +291,7 @@ namespace SAWControl
         private void sldrPower_Scroll(object sender, EventArgs e)
         {
             txtPower.Text = sldrPower.Value.ToString();
+            txtSetPower.Text = sldrPower.Value.ToString();
             Actions.setPower(txtPower.Text);
         }
 
@@ -299,6 +300,8 @@ namespace SAWControl
             if(txtSetPower.TextLength > 0)
             {
                 Actions.setPower(txtSetPower.Text);
+                txtPower.Text = txtSetPower.Text;
+                sldrPower.Value = int.Parse(txtSetPower.Text);
             }
         }
 
@@ -319,6 +322,19 @@ namespace SAWControl
                 }
             }
             
+        }
+
+        private void txtSetPower_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSetPower_Click(txtSetPower, new EventArgs());
+            }
+        }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            txtConsole.Text = "";
         }
 
         

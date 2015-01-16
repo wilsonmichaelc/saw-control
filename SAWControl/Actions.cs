@@ -118,7 +118,7 @@ namespace SAWControl
         {
             if (Globals.port.IsOpen)
             {
-                Globals.port.Write(disable_one, 0, disable_one.Length);
+                Globals.port.Write(enable_one, 0, enable_one.Length);
                 Globals.EN1 = true;
                 Globals.port.Write(disable_two, 0, disable_two.Length);
                 Globals.EN2 = false;
